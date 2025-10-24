@@ -7,7 +7,7 @@
     "light": "#EA580C",
     "dark": "#9A3412"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/navigator-light.svg",
   "contextual": {
    "options": [
      "copy",
@@ -63,8 +63,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/navigator-dark.svg",
+    "dark": "/logo/navigator-light.svg"
   },
   "footer": {
     "socials": {
