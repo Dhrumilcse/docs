@@ -11,33 +11,55 @@
   "navigation": {
     "groups": [
       {
+        "group": " ",
+        "pages": [
+          "welcome"     
+        ]
+      },
+      {
         "group": "Get Started",
         "pages": [
-          "welcome",
-          "quickstart",
-          "development"
+          "get-started/create-account",
+          "get-started/generate-api-key",
+          "get-started/add-team-members",
+          "get-started/send-logs"
         ]
       },
       {
         "group": "Essentials",
         "pages": [
+          "essentials/filter",
+          "essentials/search",
+          "essentials/view",
+          "essentials/navigation"
+        ]
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/docker",
+          "integrations/ecs",
+          "integrations/kubernetes"
+        ]
+      },
+      {
+        "group": "Examples",
+        "pages": [
+          "examples/airflow-ecs"
+        ]
+      },
+      {
+        "group": "Reference",
+        "pages": [
+          "quickstart",
+          "development",
           "essentials/markdown",
           "essentials/code",
           "essentials/images",
           "essentials/settings",
           "essentials/navigation",
-          "essentials/reusable-snippets"
-        ]
-      },
-      {
-        "group": "API Documentation",
-        "pages": [
-          "api-reference/introduction"
-        ]
-      },
-      {
-        "group": "Endpoint Examples",
-        "pages": [
+          "essentials/reusable-snippets",
+          "api-reference/introduction",
           "api-reference/endpoint/get",
           "api-reference/endpoint/create",
           "api-reference/endpoint/delete"
