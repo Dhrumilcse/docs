@@ -97,3 +97,14 @@ logger.info("Hello world")
 ```
 
 Go to [app.usenavigator.co](https://app.usenavigator.co) to start using Navigator.
+
+### Advanced Configuration
+
+By default, the logs are being send async. You can confifure it to sync and also add additional variables to configure retries, delay, and much more.
+
+```bash
+NAVIGATOR_ASYNC             = FALSE
+NAVIGATOR_MAX_RETRIES       = Number of retries after initial attempt (default: 3)
+NAVIGATOR_RETRY_BASE_DELAY  = Base retry delay in seconds (default: 1.0)
+NAVIGATOR_RETRY_MAX_DELAY   = Max retry delay in seconds (default: 60.0)
+```
