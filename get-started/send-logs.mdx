@@ -1,0 +1,115 @@
+---
+title: 'Send logs'
+description: 'Start sending logs in under 5 minutes'
+---
+
+<Info>
+  **Prerequisite** You should have Python `v3.10` or higher installed.
+</Info>
+
+### Install SDK
+
+We use [uv](https://docs.astral.sh/uv/) as a package manager. You can install the sdk via: 
+
+<CodeGroup>
+
+```bash python
+uv add navigator-sdk
+```
+
+```bash npm
+npm i -g navigator-sdk
+```
+
+</CodeGroup>
+
+Alternatively, if you are using poetry or pip, you can install it via:
+
+<CodeGroup>
+
+```bash poetry
+poetry add navigator-sdk
+```
+
+```bash pip
+pip install navigator-sdk
+```
+
+</CodeGroup>
+
+### Setup logger
+
+There are two ways you can initialize the logger
+1. By setting env variables
+2. By initializing at runtime
+
+#### 1. By setting up `.env` variables
+
+You can set the following environment variables in order to automatically setup logger.
+
+```bash
+ENVIRONMENT         = Environment
+NAVIGATOR_API_URL   = https://api.usenavigator.co
+NAIGATOR_API_KEY    = pk_live_abc..xyz
+NAVIGATOR_DOMAIN    = Domain name (i.e. Data Infrastructure)
+NAVIGATOR_SERVICE   = Service name (i.e. Airflow)
+NAVIGATOR_TRACE_ID  = Default trace ID for correlating logs
+```
+
+And then initialize by:
+
+<CodeGroup>
+
+```bash python
+from navigator_sdk import setup_logger
+
+logger = setup_logger()
+```
+
+```bash node
+```
+
+</CodeGroup>
+
+#### 2. By setting up at runtime
+
+You can also pass the same variables at runtime to setup logger.
+
+```bash python
+from navigator_sdk import setup_logger
+
+logger = setup_logger(
+    environment='production',
+    api_url='https://api.usenavigator.co',
+    api_key='pk_live_abc..xyz',
+    domain='domain',
+    service='service',
+    trace_id='trace_id'
+)
+```
+
+### Send logs
+
+<Info>
+By default, the logging via sdk is *best-effort* and *synchronous*. 
+</Info>
+
+Your logger is now ready to send logs. 
+
+```bash python
+logger.info("Hello world")
+```
+
+Go to [app.usenavigator.co](https://app.usenavigator.co) to start using Navigator.
+
+### Optional Configuration
+
+By default, the logging via sdk is *synchronous* and *best-effort* with retries. 
+
+You can configure retries and base delay.
+
+```bash
+NAVIGATOR_MAX_RETRIES       = Number of retries after initial attempt (default: 3)
+NAVIGATOR_RETRY_BASE_DELAY  = Base retry delay in seconds (default: 1.0)
+NAVIGATOR_RETRY_MAX_DELAY   = Max retry delay in seconds (default: 60.0)
+```
