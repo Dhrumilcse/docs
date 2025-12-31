@@ -3,9 +3,9 @@
   "theme": "maple",
   "name": "Navigator",
   "colors": {
-    "primary": "#9A3412",
-    "light": "#EA580C",
-    "dark": "#9A3412"
+    "primary": "#000000",
+    "light": "#ffffff",
+    "dark": "#000000"
   },
   "favicon": "/logo/navigator-light.svg",
   "navigation": {
@@ -28,6 +28,7 @@
       {
         "group": "Essentials",
         "pages": [
+          "essentials/overview",
           "essentials/filter",
           "essentials/search",
           "essentials/view",
