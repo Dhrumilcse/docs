@@ -1,0 +1,63 @@
+---
+title: 'Views'
+description: 'Save and organize custom views for different monitoring scenarios'
+---
+
+Views let you save combinations of filters and searches so you can instantly access your most important log queries. Think of them as bookmarks for your monitoring workflows.
+
+### Why Use Views?
+
+Instead of rebuilding the same filter combinations every time production breaks, save them as views and access them with one click.
+
+<CardGroup cols={2}>
+  <Card title="Save Time" icon="clock">
+    No more rebuilding the same filters every incident
+  </Card>
+
+  <Card title="Quick Switching" icon="shuffle">
+    Switch between different monitoring scenarios instantly
+  </Card>
+  
+  <Card title="Stay Organized" icon="folder">
+    Keep your most important queries organized
+  </Card>
+  
+  <Card title="Share with Team" icon="users"> 
+    <Badge color="surface"> Soon </Badge>
+    Team members can access shared views
+  </Card>
+</CardGroup>
+
+### Creating a View
+
+<Steps>
+  <Step title="Build Your Query">
+    Set up the [filters](/essentials/filter) and [search](/essentials/search) you want to save.
+    
+    For example: env = `production`, level = `ERROR`, service = `api`
+  </Step>
+  
+  <Step title="Save the View">
+    Click the "Save View" button or use the save shortcut.
+  </Step>
+  
+  <Step title="Name It">
+    Give your view a descriptive name like "Production API Errors" or "Staging Deployment Logs".
+  </Step>
+  
+  <Step title="Access Anytime">
+    Your saved view appears in the sidebar for quick access.
+  </Step>
+</Steps>
+
+### Best Practices
+
+<AccordionGroup>
+  <Accordion icon="lightbulb" title="Create Views for Common Scenarios">
+    Think about the log queries you run most often and save them as views. Production errors, staging logs, specific services - if you check it regularly, make it a view.
+  </Accordion>
+  
+  <Accordion icon="tag" title="Use Descriptive Names">
+    Name views based on what you're investigating, not just the filters. "API Gateway Timeouts" is better than "Production Errors".
+  </Accordion>
+</AccordionGroup>
