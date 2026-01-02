@@ -3,9 +3,12 @@
   "theme": "maple",
   "name": "Navigator",
   "colors": {
-    "primary": "#000000",
+    "primary": "#808080",
     "light": "#ffffff",
     "dark": "#000000"
+  },
+  "icons": {
+    "library": "lucide"
   },
   "favicon": "/logo/navigator-light.svg",
   "navigation": {
@@ -21,7 +24,6 @@
         "pages": [
           "get-started/create-account",
           "get-started/generate-api-key",
-          "get-started/add-team-members",
           "get-started/send-logs"
         ]
       },
@@ -29,24 +31,27 @@
         "group": "Essentials",
         "pages": [
           "essentials/overview",
+          "essentials/navigation",
           "essentials/filter",
           "essentials/search",
           "essentials/view",
-          "essentials/navigation"
+          "essentials/team"
+          
         ]
       },
       {
         "group": "Integrations",
         "pages": [
+          "integrations/linear",
           "integrations/docker",
-          "integrations/ecs",
-          "integrations/kubernetes"
+          "integrations/ecs"
         ]
       },
       {
         "group": "Examples",
         "pages": [
-          "examples/airflow-ecs"
+          "examples/cron",
+          "examples/airflow"
         ]
       },
       {

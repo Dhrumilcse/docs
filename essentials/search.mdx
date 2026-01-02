@@ -1,0 +1,39 @@
+---
+title: 'Search'
+description: 'Quickly find the logs you need with powerful search capabilities'
+---
+
+Search lets you find specific log messages by searching through log content or error messages. Press `/` from anywhere to start searching.
+
+## Known limitations
+
+- In Alpha, it only searches on log messages within the given time range
+- In more stable releases, we will work on improving Search capabilities to be able to search across trace ids, wildcards, custom fields within payload, etc.
+
+## Combining Search with Filters
+
+Search works alongside [filters](/essentials/filter) for powerful queries:
+
+<Steps>
+  <Step title="Apply Filters">
+    Use filters to narrow down by environment, service, or time range.
+  </Step>
+  
+  <Step title="Search for a message">
+    Search within those filtered results for specific messages or errors.
+  </Step>
+  
+  <Step title="Save as View">
+    Save the combination as a [view](/essentials/view) for quick access later.
+  </Step>
+</Steps>
+
+<Info>
+Search results update in real-time as new logs arrive matching your search criteria.
+</Info>
+
+## Keyboard Shortcuts
+
+- `/` - Focus search bar
+- `Esc` - Clear search
+- `Enter` - Execute search

@@ -1,31 +1,21 @@
 ---
 title: 'Send logs'
-description: 'Start sending logs in under 5 minutes'
+description: 'Get up and running in under 5 minutes'
 ---
+
+### Install SDK
 
 <Info>
   **Prerequisite** You should have Python `v3.10` or higher installed.
 </Info>
 
-### Install SDK
-
-We use [uv](https://docs.astral.sh/uv/) as a package manager. You can install the sdk via: 
+Install the sdk via your preferred package manager 
 
 <CodeGroup>
 
-```bash python
+```bash uv
 uv add navigator-sdk
 ```
-
-```bash npm
-npm i -g navigator-sdk
-```
-
-</CodeGroup>
-
-Alternatively, if you are using poetry or pip, you can install it via:
-
-<CodeGroup>
 
 ```bash poetry
 poetry add navigator-sdk
@@ -40,59 +30,57 @@ pip install navigator-sdk
 ### Setup logger
 
 There are two ways you can initialize the logger
-1. By setting env variables
-2. By initializing at runtime
 
-#### 1. By setting up `.env` variables
+<AccordionGroup>
+  <Accordion icon="sliders-horizontal" title="Using .env variables">
+    Set the following environment variables, all of them are required.
 
-You can set the following environment variables in order to automatically setup logger.
+    ```bash
+    ENVIRONMENT         = Environment
+    NAVIGATOR_API_URL   = https://api.usenavigator.co
+    NAIGATOR_API_KEY    = pk_live_abc..xyz
+    NAVIGATOR_DOMAIN    = Domain name (i.e. Data Infrastructure)
+    NAVIGATOR_SERVICE   = Service name (i.e. Airflow)
+    NAVIGATOR_TRACE_ID  = Default trace ID for correlating logs
+    ```
 
-```bash
-ENVIRONMENT         = Environment
-NAVIGATOR_API_URL   = https://api.usenavigator.co
-NAIGATOR_API_KEY    = pk_live_abc..xyz
-NAVIGATOR_DOMAIN    = Domain name (i.e. Data Infrastructure)
-NAVIGATOR_SERVICE   = Service name (i.e. Airflow)
-NAVIGATOR_TRACE_ID  = Default trace ID for correlating logs
-```
+    And then initialize the logger with:
 
-And then initialize by:
+    <CodeGroup>
 
-<CodeGroup>
+    ```bash python
+    from navigator_sdk import setup_logger
 
-```bash python
-from navigator_sdk import setup_logger
+    logger = setup_logger()
+    ```
 
-logger = setup_logger()
-```
+    ```bash node
+    ```
 
-```bash node
-```
+    </CodeGroup>
+  </Accordion>
+  <Accordion icon="keyboard" title="Initializing at runtime">
+    You can also pass the configuration values at runtime
 
-</CodeGroup>
+    ```bash python
+    from navigator_sdk import setup_logger
 
-#### 2. By setting up at runtime
+    logger = setup_logger(
+        environment='production',
+        api_url='https://api.usenavigator.co',
+        api_key='pk_live_abc..xyz',
+        domain='domain',
+        service='service',
+        trace_id='trace_id'
+    )
+    ```
+  </Accordion>
+</AccordionGroup>
 
-You can also pass the same variables at runtime to setup logger.
-
-```bash python
-from navigator_sdk import setup_logger
-
-logger = setup_logger(
-    environment='production',
-    api_url='https://api.usenavigator.co',
-    api_key='pk_live_abc..xyz',
-    domain='domain',
-    service='service',
-    trace_id='trace_id'
-)
-```
+You could also define both. However, note that values defined at runtime will take precedence over env variables. For example, if you need dynamic `trace_id` for each n number of scripts, you can set a default value in `.env` file and override by setting the same at runtime.
 
 ### Send logs
 
-<Info>
-By default, the logging via sdk is *best-effort* and *synchronous*. 
-</Info>
 
 Your logger is now ready to send logs. 
 
@@ -102,14 +90,46 @@ logger.info("Hello world")
 
 Go to [app.usenavigator.co](https://app.usenavigator.co) to start using Navigator.
 
+
 ### Optional Configuration
 
-By default, the logging via sdk is *synchronous* and *best-effort* with retries. 
+By default, the logging via sdk is *synchronous* and *best-effort with retries*. You can configure retries and delays but is optional.
 
-You can configure retries and base delay.
+<AccordionGroup>
+  <Accordion icon="list-start" title="Retry">
+    Add these in addition to the required env variables
 
-```bash
-NAVIGATOR_MAX_RETRIES       = Number of retries after initial attempt (default: 3)
-NAVIGATOR_RETRY_BASE_DELAY  = Base retry delay in seconds (default: 1.0)
-NAVIGATOR_RETRY_MAX_DELAY   = Max retry delay in seconds (default: 60.0)
-```
+    ```bash
+    NAVIGATOR_MAX_RETRIES       = Number of retries after initial attempt (default: 3)
+    ```
+  </Accordion>
+
+  <Accordion icon="loader" title="Delay (exponential backoff)">
+    Add these in addition to the required env variables
+
+    ```bash
+    NAVIGATOR_RETRY_BASE_DELAY  = Base retry delay in seconds (default: 1.0)
+    NAVIGATOR_RETRY_MAX_DELAY   = Max retry delay in seconds (default: 60.0)
+    ```
+  </Accordion>
+
+</AccordionGroup>
+
+### Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Examples"
+    icon="gamepad"
+    href="../examples"
+  >
+    Get your docs set up locally for easy development
+  </Card>
+  <Card
+    title="Key concepts"
+    icon="globe"
+    href="../essentials#overview"
+  >
+    Get to know the essentials
+  </Card>
+</CardGroup>

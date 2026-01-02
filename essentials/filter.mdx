@@ -1,0 +1,54 @@
+---
+title: 'Filter'
+description: 'Filter logs by category and time'
+---
+
+Filters help you narrow down your logs to find exactly what you're looking for. Combine multiple filters to create precise views of your system's behavior.
+
+### Quick Access
+
+Press `F` from anywhere to filter on categories and `⌥ 1-6` to shuffle through time range.
+
+### Categories
+
+<AccordionGroup>
+    <Accordion icon="square-asterisk" title="Log Level">
+        Filter by log severity to focus on specific types of messages. Use `ERROR` and `CRITICAL` when investigating incidents, or include `INFO` and `DEBUG` during development and troubleshooting.
+    </Accordion>
+
+    <Accordion icon="zap" title="Operation">
+       Filter by specific operations or tasks within your system. Operations represent granular actions like `daily-pdf-export`, `user-authentication`, or `data-sync` that help you track individual processes.
+    </Accordion>
+
+    <Accordion icon="component" title="Component">
+        Filter by logical components that group related operations together. Components represent functional units like `daily-export`, `notification-service`, or `payment-processor` that organize your system's architecture.
+    </Accordion>
+
+    <Accordion icon="box" title="Service">
+        Filter by the service or application that generated the logs. Services represent deployment units like `api-server`, `worker-queue`, `database`, or `scheduler` that make up your infrastructure.
+    </Accordion>
+    
+    <Accordion icon="globe" title="Domain">
+        Filter by business or technical domain to organize logs by area of responsibility. Domains represent high-level categories like `data-infrastructure`, `user-management`, or `billing` that help structure your organization's systems.
+    </Accordion>
+</AccordionGroup>
+
+### Time range
+<AccordionGroup>
+    <Accordion icon="clock-fading" title="Without active filters">
+        Filter logs by time period. Use keyboard shortcuts `⌥ 1-6` for quick access or change through tabs:
+        - `⌥ 1` - 30 minutes (default)
+        - `⌥ 2` - 1 hour
+        - `⌥ 3` - 4 hours
+        - `⌥ 4` - 8 hours
+        - `⌥ 5` - 1 day
+        - `⌥ 6` - 7 days
+    </Accordion>
+    <Accordion icon="clock-9" title="With active filters">
+        When filters are applied, the above still works. However, you cal also press `T` to open the time filter menu.
+    </Accordion>
+</AccordionGroup>
+
+## Quick Tip
+
+Once you've created a useful filter combination, save it as a [View](/essentials/view) so you can access it instantly next time.
