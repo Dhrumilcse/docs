@@ -53,23 +53,6 @@
           "examples/cron",
           "examples/airflow"
         ]
-      },
-      {
-        "group": "Reference",
-        "pages": [
-          "quickstart",
-          "development",
-          "essentials/markdown",
-          "essentials/code",
-          "essentials/images",
-          "essentials/settings",
-          "essentials/navigation",
-          "essentials/reusable-snippets",
-          "api-reference/introduction",
-          "api-reference/endpoint/get",
-          "api-reference/endpoint/create",
-          "api-reference/endpoint/delete"
-        ]
       }
     ]
   },
